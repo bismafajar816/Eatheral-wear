@@ -68,24 +68,6 @@ const checkPort = (port) => {
   });
 };
 
-// Try to use the first available port from the list
-(async () => {
-  const ports = [8080, 3000, 4000];
-  let selectedPort = null;
-
-  for (const port of ports) {
-    const isAvailable = await checkPort(port);
-    if (isAvailable) {
-      selectedPort = port;
-      break;
-    }
-  }
-
-  if (selectedPort) {
-    app.listen(selectedPort, () =>
-      console.log(`Server is now running on port ${selectedPort}`)
-    );
-  } else {
-    console.error("No available ports found!");
-  }
-})();
+app.listen(8080, () =>
+  console.log(`Server is now running on port ${selectedPort}`)
+);
