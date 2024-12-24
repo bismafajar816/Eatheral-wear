@@ -57,4 +57,4 @@ app.use("/api/shop/review", shopReviewRouter);
 app.use("/api/common/feature", commonFeatureRouter);
 
 
-return app;
+module.exports=app;
