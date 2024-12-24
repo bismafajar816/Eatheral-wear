@@ -56,18 +56,5 @@ app.use("/api/shop/search", shopSearchRouter);
 app.use("/api/shop/review", shopReviewRouter);
 app.use("/api/common/feature", commonFeatureRouter);
 
-// Check if a port is available
-const checkPort = (port) => {
-  return new Promise((resolve) => {
-    const server = net.createServer();
-    server.once("error", () => resolve(false)); // Port is in use
-    server.once("listening", () => {
-      server.close(() => resolve(true)); // Port is available
-    });
-    server.listen(port);
-  });
-};
 
-app.listen(8080, () =>
-  console.log(`Server is now running on port ${selectedPort}`)
-);
+return app;
