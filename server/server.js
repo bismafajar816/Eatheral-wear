@@ -78,14 +78,14 @@ const app = express();
 //   })
 // );
 
+// 
+const frontendOrigin = "https://my-mern-project-frontend-qco45xed7-bismafajar816s-projects.vercel.app";
+
 app.use(
   cors({
-    origin: [
-      //"http://localhost:5173", // For local development (optional if you're testing locally)
-      "https://my-mern-project-frontend.vercel.app", // Your deployed frontend URL
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // Allow cookies to be sent with requests
+    origin: frontendOrigin, // Add your exact frontend URL here
+    methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed HTTP methods
+    credentials: true, // Allow credentials (cookies, authorization headers)
   })
 );
 
