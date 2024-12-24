@@ -80,7 +80,8 @@ const app = express();
 
 // 
 //const frontendOrigin = "https://my-mern-project-frontend-qco45xed7-bismafajar816s-projects.vercel.app";
-const frontendOrigin = "https://my-mern-project-frontend-d42lxpwwb-bismafajar816s-projects.vercel.app"
+//const frontendOrigin = "https://my-mern-project-frontend-d42lxpwwb-bismafajar816s-projects.vercel.app"
+const frontendOrigin = "https://my-mern-project-frontend.vercel.app"
 app.use(
   cors({
     origin: frontendOrigin, // Add your exact frontend URL here
