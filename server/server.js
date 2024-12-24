@@ -43,30 +43,38 @@ const app = express();
 //   })
 // );
 
-const allowedOrigins = [
-  "http://localhost:5173", // Local frontend for testing
-  //"https://ethereal-wear-deploy-frontend-jmwweh4xe-bismafajar816s-projects.vercel.app", // Old deployed frontend
-  "https://my-mern-project-frontend.vercel.app", // New deployed frontend
-];
+// const allowedOrigins = [
+//   "http://localhost:5173", // Local frontend for testing
+//   //"https://ethereal-wear-deploy-frontend-jmwweh4xe-bismafajar816s-projects.vercel.app", // Old deployed frontend
+//   "https://my-mern-project-frontend.vercel.app", // New deployed frontend
+// ];
+
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       if (allowedOrigins.includes(origin) || !origin) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     methods: ["GET", "POST", "DELETE", "PUT"],
+//     allowedHeaders: [
+//       "Content-Type",
+//       "Authorization",
+//       "Cache-Control",
+//       "Expires",
+//       "Pragma",
+//     ],
+//     credentials: true, // Allow cookies and credentials
+//   })
+// );
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
-    credentials: true, // Allow cookies and credentials
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 
