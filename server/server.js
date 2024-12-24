@@ -28,9 +28,36 @@ mongoose
 
 const app = express();
 
+// app.use(
+//   cors({
+//     origin: "https://ethereal-wear-deploy-frontend-jmwweh4xe-bismafajar816s-projects.vercel.app/",
+//     methods: ["GET", "POST", "DELETE", "PUT"],
+//     allowedHeaders: [
+//       "Content-Type",
+//       "Authorization",
+//       "Cache-Control",
+//       "Expires",
+//       "Pragma",
+//     ],
+//     credentials: true,
+//   })
+// );
+
+const allowedOrigins = [
+  "http://localhost:5173", // Local frontend for testing
+  "https://ethereal-wear-deploy-frontend-jmwweh4xe-bismafajar816s-projects.vercel.app", // Old deployed frontend
+  "https://my-mern-project-frontend.vercel.app", // New deployed frontend
+];
+
 app.use(
   cors({
-    origin: "https://ethereal-wear-deploy-frontend-jmwweh4xe-bismafajar816s-projects.vercel.app/",
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
@@ -39,7 +66,7 @@ app.use(
       "Expires",
       "Pragma",
     ],
-    credentials: true,
+    credentials: true, // Allow cookies and credentials
   })
 );
 
