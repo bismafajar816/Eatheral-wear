@@ -45,7 +45,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173", // Local frontend for testing
-  "https://ethereal-wear-deploy-frontend-jmwweh4xe-bismafajar816s-projects.vercel.app", // Old deployed frontend
+  //"https://ethereal-wear-deploy-frontend-jmwweh4xe-bismafajar816s-projects.vercel.app", // Old deployed frontend
   "https://my-mern-project-frontend.vercel.app", // New deployed frontend
 ];
 
