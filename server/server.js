@@ -79,24 +79,24 @@ const app = express();
 // );
 
 // 
-// const frontendOrigin = "https://my-mern-project-frontend-qco45xed7-bismafajar816s-projects.vercel.app";
+const frontendOrigin = "https://my-mern-project-frontend-qco45xed7-bismafajar816s-projects.vercel.app";
 
-// app.use(
-//   cors({
-//     origin: frontendOrigin, // Add your exact frontend URL here
-//     methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed HTTP methods
-//     credentials: true, // Allow credentials (cookies, authorization headers)
-//   })
-// );
-
-const corsOptions = { origin: 'https://my-mern-project-frontend-qco45xed7-bismafajar816s-projects.vercel.app', optionsSuccessStatus: 200 // For legacy browser support }; app.use(cors(corsOptions));
 app.use(
-   cors({
-     origin: corsOptions, // Add your exact frontend URL here
-     methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed HTTP methods
-     credentials: true, // Allow credentials (cookies, authorization headers)
-   })
- );
+  cors({
+    origin: frontendOrigin, // Add your exact frontend URL here
+    methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed HTTP methods
+    credentials: true, // Allow credentials (cookies, authorization headers)
+  })
+);
+
+// const corsOptions = { origin: 'https://my-mern-project-frontend-qco45xed7-bismafajar816s-projects.vercel.app', optionsSuccessStatus: 200 // For legacy browser support }; app.use(cors(corsOptions));
+// app.use(
+//    cors({
+//      origin: corsOptions, // Add your exact frontend URL here
+//      methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed HTTP methods
+//      credentials: true, // Allow credentials (cookies, authorization headers)
+//    })
+//  );
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRouter);
