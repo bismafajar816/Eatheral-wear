@@ -20,7 +20,7 @@ const chrome = require('selenium-webdriver/chrome');
 
 // Create a database connection
 mongoose
-  .connect("mongodb://localhost:27017/mern-ecommerce")
+.connect("mongodb+srv://2022cs66:221135@cluster0.b8r6x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 
@@ -30,7 +30,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://ethereal-wear-deploy-frontend-jmwweh4xe-bismafajar816s-projects.vercel.app/",
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
